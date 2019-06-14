@@ -8,14 +8,14 @@ Please review the requirements below and complete the exercise. Working within a
 Please write a custom Drupal module that meets the following requirements:
 
 * When viewing the page as an authenticated user, the following content is displayed in the sidebar:
-> “Hello <username>!
+> “Hello {username}!
 > 
-> Your last log in was <login date>.
+> Your last log in was {login date}.
 > 
 >Visit your profile”
-* The logged in user’s username should be displayed instead of “<username>”.
-* The login date should reflect the user’s last login.
-* The login date should be formatted as: December 21st, 2012 12:01 am
+* The logged in user’s username should be displayed instead of “{username}”.
+* The {login date} should reflect the user’s last login.
+* The {login date} should be formatted as: December 21st, 2012 12:01 am
 * The words “Visit your profile” should link to the user’s profile page.
 * If a user is not logged in while viewing the page, nothing should display in the sidebar.
 
@@ -41,7 +41,7 @@ During our interview, we will ask some follow up questions relating to this exer
 * Alternative approaches that may have been better or worse in hindsight
 
 ## Completion and Delivery
-Please deliver it to Forum One as a fork of this git repository on GitHub.
+Please deliver it to Forum One as a fork of this repository on GitHub.
 
 Email the following to Kari Inch (kinch@forumone.com):
 * A link to your repository
