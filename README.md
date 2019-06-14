@@ -41,7 +41,7 @@ During our interview, we will ask some follow up questions relating to this exer
 * Alternative approaches that may have been better or worse in hindsight
 
 ## Completion and Delivery
-Please deliver it to Forum One as a fork of this repository on GitHub.
+Please start by forking this repository. Commit just your module (not Drupal core or contrib files) and deliver it to Forum One as public repository on GitHub.
 
 Email the following to Kari Inch (kinch@forumone.com):
 * A link to your repository
