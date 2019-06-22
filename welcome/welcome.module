@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function welcome_theme() {
+  return array(
+   'welcome_block' => array(
+            'variables' => array('title' => NULL, 'description' => NULL),
+            'template' => 'block--welcome',
+        ),
+  );
+}
