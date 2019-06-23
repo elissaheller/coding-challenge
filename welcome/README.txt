@@ -18,20 +18,13 @@ INSTALLATION
 CONFIGURATION
 -------------
 
-Go to /admin/structure/block
-Place block in Sidebar first called "Welcome Block"
-Restrict to roles: Authenticated user
- 
- * Configure the user permissions in Administration » People » Permissions:
+ * Enable Bartik theme
 
-   - Use the administration pages and help (System module)
+ * Add the Welcome block to the sidebar in Administration » Structure » Block Layout:
 
-     The top-level administration categories require this permission to be
-     accessible. The administration menu will be empty unless this permission
-     is granted.
-
-   - Access administration menu
-
-     Users with this permission will see the administration menu at the top of
-     each page.
+   - Click to "Place block" in region "Sidebar first"
+   - Select block "Welcome block"
+   - Uncheck the box "Display title"
+   - In the Roles tab, check the box for "Authenticated user"
+   - Save
 

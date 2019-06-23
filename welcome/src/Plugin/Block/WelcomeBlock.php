@@ -19,34 +19,21 @@ class WelcomeBlock extends BlockBase {
 	 */
 	public function build() {
 
+		$markup = '';
 		$user = \Drupal::currentUser();
 
-		$id = $user->id();
-		$name = $user->getUsername();
-		$timestamp = $user->getLastAccessedTime();
-		$last_login = date('F jS, Y g:i a', $timestamp);
+		if ($user->id() !== 0) {
+			$id = $user->id();
+			$name = $user->getUsername();
+			$timestamp = $user->getLastAccessedTime();
+			$last_login = date('F jS, Y g:i a', $timestamp);
 
-		$url_object = Url::fromRoute('entity.user.canonical', ['user' => $id]);
-		$link = [
-		  '#type' => 'link',
-		  '#url' => $url_object,
-		  '#title' => $this->t('Visit your profile'),
-		];
+			$markup = "<p>Hello {$name}!</p>";
+			$markup .= "<p>Your last log in was {$last_login}.</p>";
+			$markup .= "<a href='/user/{$id}'>Vist your profile</a>"; 
+		}
 
-		// return array(
-	 //    '#title' => 'Hello!! World!',
-		// 	'#last_login' => $last_login,
-		// 	'#link' => $link,
-	 // 	);
-		//return array('#markup' => 'jasdkfjasf');
-
-		return [
-		  '#theme' => 'block__welcome',
-	    '#username' => $name,
-			'#last_login' => $last_login,
-			'#link' => $link,
-		  '#attributes' => [],
-		];
+		return array('#markup' => $markup);
 	}
 
 }
