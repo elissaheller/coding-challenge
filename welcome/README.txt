@@ -28,3 +28,6 @@ CONFIGURATION
    - In the Roles tab, check the box for "Authenticated user"
    - Save
 
+ * Change the custom message at /admin/config/welcome
+
+
