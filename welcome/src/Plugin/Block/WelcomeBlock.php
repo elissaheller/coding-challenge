@@ -3,6 +3,7 @@
 namespace Drupal\welcome\Plugin\Block;
  
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Url;
 
 /**
  * Provides a Welcome Block
@@ -19,20 +20,33 @@ class WelcomeBlock extends BlockBase {
 	public function build() {
 
 		$user = \Drupal::currentUser();
-		$last_login = $user->getLastLoginTime();
-		$id = $user->id;
-		$name = $user->getUsername();
 
-		$url_object = Url::fromRoute('entity.user.canonical', ['user' => $user->id]);
+		$id = $user->id();
+		$name = $user->getUsername();
+		$timestamp = $user->getLastAccessedTime();
+		$last_login = date('F jS, Y g:i a', $timestamp);
+
+		$url_object = Url::fromRoute('entity.user.canonical', ['user' => $id]);
 		$link = [
 		  '#type' => 'link',
 		  '#url' => $url_object,
 		  '#title' => $this->t('Visit your profile'),
 		];
 
-		return array(
-	    '#markup' => $this->t('Hello, World!'),
-	 	);
+		// return array(
+	 //    '#title' => 'Hello!! World!',
+		// 	'#last_login' => $last_login,
+		// 	'#link' => $link,
+	 // 	);
+		//return array('#markup' => 'jasdkfjasf');
+
+		return [
+		  '#theme' => 'block__welcome',
+	    '#username' => $name,
+			'#last_login' => $last_login,
+			'#link' => $link,
+		  '#attributes' => [],
+		];
 	}
 
 }
