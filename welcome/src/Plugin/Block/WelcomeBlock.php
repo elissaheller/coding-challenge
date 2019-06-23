@@ -28,9 +28,13 @@ class WelcomeBlock extends BlockBase {
 			$timestamp = $user->getLastAccessedTime();
 			$last_login = date('F jS, Y g:i a', $timestamp);
 
+			$config = \Drupal::config('welcome.adminsettings'); 
+			$message = $config->get('welcome_message');   
+
 			$markup = "<p>Hello {$name}!</p>";
 			$markup .= "<p>Your last log in was {$last_login}.</p>";
-			$markup .= "<a href='/user/{$id}'>Vist your profile</a>"; 
+			$markup .= "<p><a href='/user/{$id}'>Vist your profile</a></p>"; 
+			$markup .= "<p>{$message}<p>";
 		}
 
 		return array('#markup' => $markup);
